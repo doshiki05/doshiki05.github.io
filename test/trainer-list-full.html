@@ -1,40 +1,10 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  $('#data').before('<div id="nav" class="pagination"></div>');
-  var rowsShown = 7;
-  var rowsTotal = $('#data tbody tr').length;
-  var numPages = rowsTotal / rowsShown;
-  for (i = 0; i < numPages; i++) {
-    var pageNum = i + 1;
-    $('#nav').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
-  }
-  $('#data tbody tr').hide();
-  $('#data tbody tr').slice(0, rowsShown).show();
-  $('#nav a:first').addClass('active');
-  $('#nav a').bind('click', function() {
-
-    $('#nav a').removeClass('active');
-    $(this).addClass('active');
-    var currPage = $(this).attr('rel');
-    var startItem = currPage * rowsShown;
-    var endItem = startItem + rowsShown;
-    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-    css('display', 'table-row').animate({
-      opacity: 1
-    }, 300);
-  });
-});
-</script>
 <style>
 h4 { text-align: center; }
 .illegal { filter: grayscale(100%) }
 .useless { filter: sepia(100%) }
-#data tr {
-  display: none;
-}
+
 .pagination {
   display: inline-block;
 }
@@ -56,9 +26,6 @@ h4 { text-align: center; }
 </style>
 </head>
 <body>
-<p>
-<a href="trainer-list-full.html"><h2>See Full List</h2></a>
-</p>
 <table style="width:100%" id="data">
 <tr>
 <td><img loading="lazy" src="https://images.pokemontcg.io/hgss1/ONE.png" alt="HeartGold & SoulSilver[ONE] - Alph Lithograph" width="256"><h4>[HS-ONE] Alph Lithograph</h4></td>
@@ -546,5 +513,4 @@ h4 { text-align: center; }
 <td><img loading="lazy" src="https://images.pokemontcg.io/swsh6/230.png" alt="Chilling Reign[230] - Welcoming Lantern" width="256"><h4>[CRE-230] Welcoming Lantern</h4></td>
 <td><img loading="lazy" src="https://images.pokemontcg.io/swshp/SWSH178.png" alt="SWSH Black Star Promos[SWSH178] - Professor's Research" width="256"><h4>[PR-SW-SWSH178] Professor's Research</h4></td>
 </tr>
-</table>
-</body></html>
+</table></body></html>
